@@ -15,7 +15,7 @@
   
 <script type="module">
 import init, * as bindings from './gigasaver-b7a396975c9a17aa.js';
-const wasm = await init({ module_or_path: './gigasaver-15e2550c162e0f5d_bg.wasm' });
+const wasm = await init({ module_or_path: './gigasaver-3194f6fc06582b9a_bg.wasm' });
 
 
 window.wasmBindings = bindings;
@@ -35,9 +35,24 @@ dispatchEvent(new CustomEvent("TrunkApplicationStarted", {detail: {wasm}}));
       color: #c8b48a; font: 20px Georgia, serif; pointer-events: none; text-align: center; }
     #ucitavanje small { color: #8a7c66; font: 14px system-ui, sans-serif; }
     body:has(canvas) #ucitavanje { display: none; }
+    /* preuzimanje Windows verzije: u meniju dole desno; sklanja se kad igra krene (Esc ga vraca), na telefonu ga nema */
+    #preuzmi { position: fixed; right: 16px; bottom: 58px; z-index: 10; padding: 8px 15px; border-radius: 18px;
+      background: rgba(20, 16, 24, 0.86); border: 1px solid #c49e58; color: #eadcb4; text-decoration: none;
+      font: 600 14px system-ui, sans-serif; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); }
+    #preuzmi:hover { background: #8a6a34; color: #fff; }
+    #preuzmi small { display: block; font-weight: 400; font-size: 11px; color: #b8a888; }
+    @media (pointer: coarse) { #preuzmi { display: none; } }
   </style>
-<link rel="modulepreload" href="./gigasaver-b7a396975c9a17aa.js" crossorigin="anonymous" integrity="sha384-DiHuBuO9T3IQfdZGDxArfUqYlGdqrMafCzby93xkzjcfMjq1btcLL57hOmohrvwo"><link rel="preload" href="./gigasaver-15e2550c162e0f5d_bg.wasm" crossorigin="anonymous" integrity="sha384-5Gu9SVueIx3JcGOh6q6PbS/27KPAfBoBkkDCzQco6qwq7/pgnyylziK1WgsUcFNa" as="fetch" type="application/wasm"></head>
+<link rel="modulepreload" href="./gigasaver-b7a396975c9a17aa.js" crossorigin="anonymous" integrity="sha384-DiHuBuO9T3IQfdZGDxArfUqYlGdqrMafCzby93xkzjcfMjq1btcLL57hOmohrvwo"><link rel="preload" href="./gigasaver-3194f6fc06582b9a_bg.wasm" crossorigin="anonymous" integrity="sha384-d7JidCWCATwmiO755uffo4qBmcZvN8J45LpWXZP/4/vNqz6YzVeWQzTECpA5McXP" as="fetch" type="application/wasm"></head>
 <body oncontextmenu="return false">
   <div id="ucitavanje">SkyPlain Avanture se učitavaju…<small>avanture za odrasle · misterija, humor, retro</small></div>
+  <a id="preuzmi" href="SkyPlainAvantureSetup.exe" download title="Windows installer, potpisan SkyPlain.com">Preuzmi za Windows<small>installer, bez administratora</small></a>
+  <script>
+    (function () {
+      var a = document.getElementById('preuzmi');
+      document.addEventListener('pointerdown', function (e) { if (e.target.tagName === 'CANVAS') a.style.visibility = 'hidden'; }, true);
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') a.style.visibility = 'visible'; }, true);
+    })();
+  </script>
 </body>
 </html>
