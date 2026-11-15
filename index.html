@@ -15,7 +15,7 @@
   
 <script type="module">
 import init, * as bindings from './gigasaver-f0848c22f5e1c34.js';
-const wasm = await init({ module_or_path: './gigasaver-f92a99d745968631_bg.wasm' });
+const wasm = await init({ module_or_path: './gigasaver-a24acd36ca975267_bg.wasm' });
 
 
 window.wasmBindings = bindings;
@@ -49,7 +49,7 @@ dispatchEvent(new CustomEvent("TrunkApplicationStarted", {detail: {wasm}}));
     #preuzmi small { display: block; font-weight: 400; font-size: 11px; color: #b8a888; }
     @media (pointer: coarse) { #preuzmi { display: none; } }
   </style>
-<link rel="modulepreload" href="./gigasaver-f0848c22f5e1c34.js" crossorigin="anonymous" integrity="sha384-/QFsrOEcQwa72nfpVK74Fp+v6XeaGzrBqv6u4pmMH6KHUk/M47DdIOX+IbTplbUa"><link rel="preload" href="./gigasaver-f92a99d745968631_bg.wasm" crossorigin="anonymous" integrity="sha384-luXcjpKpm8LVb/lQFk+Rnn9eCcM5ooDpvzSFCWMl0I+e70jzTKZ7qMIl99sZXdBD" as="fetch" type="application/wasm"></head>
+<link rel="modulepreload" href="./gigasaver-f0848c22f5e1c34.js" crossorigin="anonymous" integrity="sha384-/QFsrOEcQwa72nfpVK74Fp+v6XeaGzrBqv6u4pmMH6KHUk/M47DdIOX+IbTplbUa"><link rel="preload" href="./gigasaver-a24acd36ca975267_bg.wasm" crossorigin="anonymous" integrity="sha384-Oquy7gQ/Hpm6yTNijRaIF74yG/10h/9GuNIPhC65i7XGp591eTtI6vaVMfVIFQQT" as="fetch" type="application/wasm"></head>
 <body oncontextmenu="return false">
   <div id="ucitavanje">SkyPlain Avanture se učitavaju…<small>avanture za odrasle · misterija, humor, retro</small></div>
   <a id="preuzmi" href="SkyPlainAvantureSetup.exe" download title="Windows installer, potpisan SkyPlain.com">Preuzmi za Windows<small>installer, bez administratora</small></a>
